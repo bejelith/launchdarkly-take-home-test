@@ -38,3 +38,25 @@ That said, we'd like you to cut some corners so we can focus on certain aspects 
 The spec is intentionally a little underspecified. We're looking for a functional REST API that meets the criteria above, but there are no "gotchas," and there is no single "right" solution. Please use your best judgment and be prepared to explain your decisions in the on-site review.
 
 That's it. Commit your solution to the provided GitHub repository (this one) and submit the solution using the Greenhouse link we emailed you. When you come in, we'll pair with you and walk through your solution and extend it in an interesting way.
+
+
+## Server-Sent-Events listener
+
+This daemon connects to an URL endpoint streaming Server-Sent-Events in the following format:
+```
+event: score
+data: {"exam": 3, "studentId": "foo", score: .991}
+```
+
+### Build
+The build process is manage by make
+```make```
+
+the resulting binary is named `server`
+
+### Run
+
+The server is started with ` $ ./server` and commandline options can be accessed with
+
+```$ ./server -help``` 
+
