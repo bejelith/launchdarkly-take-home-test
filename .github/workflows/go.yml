@@ -4,7 +4,11 @@
 name: Go
 
 on:
-  push
+  pull_request:
+    types: [opened, reopened, synchronize, push]
+  push:
+    branches:
+      - 'main'
 
 jobs:
   test:
@@ -21,10 +25,10 @@ jobs:
       run: make coverage
 
     - name: Archive code coverage
-        uses: actions/upload-artifact@v4
-        with:
-          name: code-coverage
-          path: cover.out
+      uses: actions/upload-artifact@v4
+      with:
+        name: code-coverage
+        path: cover.out
   
   code_coverage:
     name: "Code coverage report"
