@@ -24,15 +24,6 @@ jobs:
     - name: Test
       run: make coverage
 
-    - name: Archive code coverage
-      run: |
-        COVERAGE_REPORT=$(go tool cover -func=cover.out)
+    - name: Write coverage to summary
+      run: go tool cover -func=cover.out >> $GITHUB_STEP_SUMMARY
 
-    - name: Run the action
-      uses: dobladov/action-status@v2
-      with: 
-        authToken: ${{secrets.GITHUB_TOKEN}}
-        context: 'Coverage'
-        description: $${{ env.COVERAGE_REPORT }}
-        state: ${{ job.status }}
-        sha: ${{github.event.pull_request.head.sha || github.sha}}
