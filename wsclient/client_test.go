@@ -2,7 +2,6 @@ package wsclient
 
 import (
 	"bytes"
-	"fmt"
 	"testing"
 )
 
@@ -89,7 +88,7 @@ func TestReadMessage(t *testing.T) {
 				t.Fatal(e)
 			} else {
 				if m.Data != test.result {
-					fmt.Printf("expected %s but got %s", test.result, m.Data)
+					t.Fatalf("expected %s but got %s", test.result, m.Data)
 				}
 			}
 

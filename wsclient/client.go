@@ -1,3 +1,4 @@
+// Package wsclient implements the server-side event protocol
 package wsclient
 
 import (
@@ -7,6 +8,8 @@ import (
 	"io"
 	"strings"
 	"sync/atomic"
+
+	log "log/slog"
 )
 
 const eventField = "event: "
@@ -39,7 +42,7 @@ func (c *Client) ReadStream(r io.Reader) {
 			if len(buffer) > 0 {
 				message, err := readMessage(buffer)
 				if err != nil {
-					fmt.Println("failed to parse message:", err)
+					log.Error("failed to parse message", "error", err)
 				} else {
 					for _, l := range c.listeners {
 						l(message)
