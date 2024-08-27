@@ -1,3 +1,6 @@
+# Launch darkly conding test
+I have passed this coding interview with this solution.. enjoy.
+
 # Server-Sent-Events listener
 
 This daemon connects to an URL endpoint streaming Server-Sent-Events in the following format:
