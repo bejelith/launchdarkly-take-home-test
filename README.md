@@ -1,4 +1,4 @@
-# Launch darkly conding test
+# Launchdarkly conding test
 I have passed this coding interview with this solution.. enjoy.
 
 # Server-Sent-Events listener
